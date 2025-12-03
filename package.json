@@ -1,0 +1,49 @@
+{
+    "name": "@kequtech/kequtech-api",
+    "description": "Official Kequtech API Client Library",
+    "version": "1.0.0",
+    "type": "module",
+    "license": "MIT",
+    "sideEffects": false,
+    "exports": "./dist/main.js",
+    "types": "./dist/main.d.ts",
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "clear": "rm -rf dist",
+        "build": "npm run clear && tsc -p tsconfig.build.json && node fix-dts.ts",
+        "test": "node --test ./test/**/*.test.ts",
+        "prepack": "npm test"
+    },
+    "devDependencies": {
+        "@types/node": "^24.6.2",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "@kequtech/json-valid": "^0.4.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=18.17"
+    },
+    "keywords": [
+        "api",
+        "api-products",
+        "kequtech",
+        "openapi",
+        "schema"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kequtech/kequtech-api.git"
+    },
+    "bugs": {
+        "url": "https://github.com/kequtech/kequtech-api/issues"
+    },
+    "homepage": "https://github.com/kequtech/kequtech-api#readme"
+}
