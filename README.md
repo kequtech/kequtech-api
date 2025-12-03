@@ -185,11 +185,6 @@ const params: ApiParameters<'/v1/message-parser'> = {};
 const data: ApiResponse<'/v1/message-parser'> = {};
 ```
 
-## Environment
-
-* **Runtime:** Node 18+ (ESM only)
-* **Typing:** Built-in TypeScript definitions no extra packages required
-
 ## License
 
 MIT License
