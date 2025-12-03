@@ -28,7 +28,7 @@ export const API_CATALOG: ApiProduct[] = [
                 ...V1_MESSAGE_PARSER,
                 rateLimit: { max: 60, seconds: 60 },
                 packageVersion: '1.0.0',
-                added: '2025-11-28',
+                added: '2025-12-01',
             },
         ],
     },
@@ -43,7 +43,7 @@ export const API_CATALOG: ApiProduct[] = [
                 ...V1_MESSAGE_ROUTER,
                 rateLimit: { max: 200, seconds: 60 },
                 packageVersion: '1.0.0',
-                added: '2025-11-28',
+                added: '2025-12-01',
             },
         ],
     },
@@ -58,7 +58,7 @@ export const API_CATALOG: ApiProduct[] = [
                 ...V1_MESSAGE_RESPONDER,
                 rateLimit: { max: 200, seconds: 60 },
                 packageVersion: '1.0.0',
-                added: '2025-11-28',
+                added: '2025-12-01',
             },
         ],
     },
@@ -73,7 +73,7 @@ export const API_CATALOG: ApiProduct[] = [
                 ...V1_SUMMARIZE_TEXT,
                 rateLimit: { max: 200, seconds: 60 },
                 packageVersion: '1.0.0',
-                added: '2025-11-28',
+                added: '2025-12-01',
             },
         ],
     },
@@ -88,7 +88,7 @@ export const API_CATALOG: ApiProduct[] = [
                 ...V1_SUMMARIZE_URL,
                 rateLimit: { max: 200, seconds: 60 },
                 packageVersion: '1.0.0',
-                added: '2025-11-28',
+                added: '2025-12-01',
             },
         ],
     },
@@ -103,7 +103,7 @@ export const API_CATALOG: ApiProduct[] = [
                 ...V1_CHARACTER_GENERATOR,
                 rateLimit: { max: 10, seconds: 60 },
                 packageVersion: '1.0.0',
-                added: '2025-11-28',
+                added: '2025-12-01',
             },
         ],
     },
@@ -112,10 +112,18 @@ export const API_CATALOG: ApiProduct[] = [
 // ISO 8601 date of the current version
 export const API_CATALOG_VERSION = API_CATALOG.flatMap((product) =>
     product.versions.map((v) => v.added),
-).reduce<DateString>((best, added) => (added > best ? added : best), '1970-01-01');
+).reduce<DateString>(
+    (best, added) => (added > best ? added : best),
+    '1970-01-01',
+);
 
-export const ALL_PATHNAMES = API_CATALOG.reduce<string[]>((acc, { versions, endpoint }) => {
-    const pathnames = [...Array(versions.length)].map((_, i) => `/v${i + 1}${endpoint}`);
-    acc.push(...pathnames);
-    return acc;
-}, []);
+export const ALL_PATHNAMES = API_CATALOG.reduce<string[]>(
+    (acc, { versions, endpoint }) => {
+        const pathnames = [...Array(versions.length)].map(
+            (_, i) => `/v${i + 1}${endpoint}`,
+        );
+        acc.push(...pathnames);
+        return acc;
+    },
+    [],
+);

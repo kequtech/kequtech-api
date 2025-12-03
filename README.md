@@ -176,7 +176,14 @@ This is why you may see missing failed requests in `Recent Activity` on your das
 
 ## Type Safety
 
-Every endpoint and parameter is fully typed. Hovering in your editor (VS Code, WebStorm, etc.) will reveal available endpoints, parameter types, and return structures.
+Every endpoint and parameter is fully typed. Hovering in your editor (VS Code, WebStorm, etc.) will reveal available endpoints, parameter types, and return structures. If you want to use these types directly they are available for import.
+
+```ts
+import type { ApiParameters, ApiResponse } from '@kequtech/kequtech-api';
+
+const params: ApiParameters<'/v1/message-parser'> = {};
+const data: ApiResponse<'/v1/message-parser'> = {};
+```
 
 ## Environment
 
