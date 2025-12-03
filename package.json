@@ -1,6 +1,6 @@
 {
     "name": "@kequtech/kequtech-api",
-    "description": "Official Kequtech API Client Library",
+    "description": "Official Kequtech API client library",
     "version": "1.0.0",
     "type": "module",
     "license": "MIT",
